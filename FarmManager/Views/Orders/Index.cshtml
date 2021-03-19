@@ -1,0 +1,68 @@
+﻿@model IEnumerable<FarmManager.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Comenzi</h1>
+
+<p>
+    <a class="btn btn-outline-success" asp-action="Create">Create New</a>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" name="searchName">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClientNavigation.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProdusNavigation.Produs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantitate)
+            </th>
+            <th>
+                Valoare RON
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ridicat)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var Valoare = item.Cantitate * item.IdProdusNavigation.PretKg;
+            <tr class="table-primary">
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdClientNavigation.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdProdusNavigation.Produs)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantitate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valoare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ridicat)
+                </td>
+
+                <td>
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FarmManager.Models.Inputuri>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Inputuri</h1>
+
+<p>
+    <a class="btn btn-outline-success" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantitateUm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitateDeMasura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PretUm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producator)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantitateUm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitateDeMasura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PretUm)
+                </td>
+                <td>
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model FarmManager.Models.Defectiuni
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Defectiuni</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Utilaj
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdUtilajNavigation.FullDen)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Detalii)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Detalii)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CostReparatie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CostReparatie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reparat)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reparat)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

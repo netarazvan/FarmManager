@@ -1,0 +1,56 @@
+﻿@model IEnumerable<FarmManager.Models.Defectiuni>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Defectiuni</h1>
+
+<p>
+    <a class="btn btn-outline-success" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Utilaj
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detalii)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostReparatie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reparat)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUtilajNavigation.FullDen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Detalii)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostReparatie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reparat)
+                </td>
+
+                <td>
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
